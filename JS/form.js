@@ -47,15 +47,16 @@ $(document).ready(function () {
     const budget = 300;
     const totalAmount = parseInt(localStorage.getItem("totalAmount"));
     let amountValue = parseInt($("#amount").val());
-    if (totalAmount === 300) amountValue = 0;
-
+    console.log(amountValue, totalAmount);
+    if (totalAmount >= 300 || amountValue > budget - totalAmount)
+      amountValue = 0;
     let calculateProgress;
 
     if (totalAmount && amountValue)
       calculateProgress = totalAmount + amountValue;
     else if (totalAmount) calculateProgress = totalAmount;
     else calculateProgress = amountValue;
-
+    console.log(calculateProgress);
     let percentage = 0;
     if (calculateProgress > 300) percentage = 300;
     else if (calculateProgress < 0) percentage = 0;
