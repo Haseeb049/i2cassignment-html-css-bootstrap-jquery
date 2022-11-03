@@ -26,7 +26,7 @@ $(document).ready(function () {
     const totalAmount = parseInt(localStorage.getItem("totalAmount"));
     let percentage = 0;
 
-    if (totalAmount > 300) percentage = 300;
+    if (totalAmount >= 300) percentage = 300;
     else if (totalAmount < 0) percentage = 0;
     else percentage = (totalAmount / budget) * 100 + "%";
     $(".progress-bar").css("width", percentage);
